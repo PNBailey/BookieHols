@@ -1,0 +1,57 @@
+.vs/Stocks/v16/.suo
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+Stocks.UI/.editorconfig
+Stocks.UI/e2e/protractor.conf.js
+Stocks.UI/src/environments/environment.prod.ts
+Stocks.UI/src/environments/environment.ts
+Stocks.UI/.angular/cache/13.2.6/angular-webpack/bcb88080e2d5b6215db570fa384654065b800894/0.pack
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+../.vs/
+
+# System Files
+.DS_Store
+Thumbs.db
+/.angular/cache/
+Stocks.UI/e2e/src/app.e2e-spec.ts
