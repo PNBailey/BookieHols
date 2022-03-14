@@ -48,10 +48,12 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-../.vs/
+Stocks.API/.vs/
 
 # System Files
 .DS_Store
 Thumbs.db
 /.angular/cache/
 Stocks.UI/e2e/src/app.e2e-spec.ts
+Stocks.UI/.angular/cache/
+Stocks.UI/node_modules/
