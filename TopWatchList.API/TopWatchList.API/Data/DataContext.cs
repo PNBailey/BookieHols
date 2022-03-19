@@ -1,17 +1,17 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
-using Stocks.API.Models;
+using TopWatchList.API.Models;
 
 /// <summary>
 /// The Data Context class
 /// </summary>
-public class DataContext : DbContext 
+public class DataContext : DbContext
 {
 	public DataContext(DbContextOptions<DataContext> options)
 		: base(options)
 	{
-		
+
 	}
 
 	/// <summary>

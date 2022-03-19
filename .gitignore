@@ -63,5 +63,6 @@ TopWatchList.API/TopWatchList.API/obj/staticwebassets.pack.sentinel
 TopWatchList.API/TopWatchList.API/obj/Debug
 TopWatchList.API/TopWatchList.API/obj/Release
 TopWatchList.API/TopWatchList.API/.vs
-TopWatchList.API/.vs/Stocks.API/v17/.suo
-TopWatchList.API/.vs/Stocks.API/DesignTimeBuild/
+TopWatchList.API/.vs/TopWatchList.API/v17/.suo
+TopWatchList.API/.vs/TopWatchList.API/DesignTimeBuild/
+TopWatchList.API/.vs/slnx.sqlite

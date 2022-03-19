@@ -1,35 +1,70 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$stocks-primary: mat.define-palette(mat.$indigo-palette);
-$stocks-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$custom-indigo: (
+ 50: #f3e5f5,
+ 100: #e1bee7,
+ 200: #ce93d8,
+ 300: #ba68c8,
+ 400: #ab47bc,
+ 500: #9c27b0,
+ 600: #8e24aa,
+ 700: #7b1fa2,
+ 800: #6a1b9a,
+ 900: #4a148c,
 
-// The warn palette is optional (defaults to red).
-$stocks-warn: mat.define-palette(mat.$red-palette);
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: white,
+   400: white,
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$stocks-theme: mat.define-light-theme((
+$custom-green: (
+ 50: #f2f8e7,
+ 100: #deedc3,
+ 200: #c9e19c,
+ 300: #b2d574,
+ 400: #a1cc53,
+ 500: #90c331,
+ 600: #80b429,
+ 700: #6ba01e,
+ 800: #568c14,
+ 900: #2f6a00,
+
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);
+
+$custom-primary: mat.define-palette($custom-indigo);
+$custom-accent: mat.define-palette($custom-green);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme((
   color: (
-    primary: $stocks-primary,
-    accent: $stocks-accent,
-    warn: $stocks-warn,
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn,
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($stocks-theme);
+@include mat.all-component-themes($custom-theme);
 

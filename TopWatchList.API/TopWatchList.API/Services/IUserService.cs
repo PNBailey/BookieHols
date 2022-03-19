@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Stocks.API.Models;
+﻿using TopWatchList.API.Models;
 
-namespace Stocks.API.Services
+namespace TopWatchList.API.Services
 {
     public interface IUserService
     {

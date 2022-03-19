@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Stocks.API.Models;
+using TopWatchList.API.Models;
 
-namespace Stocks.API.DAL
+namespace TopWatchList.API.DAL
 {
     /// <summary>
     /// The Interface for the User Repository.

@@ -1,11 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Stocks.API.Models;
+using TopWatchList.API.Models;
 using System.Net;
-using System.Web.Http;
 
-namespace Stocks.API.DAL
+namespace TopWatchList.API.DAL
 {
     /// <summary>
     /// The User Repository Data Access Layer
@@ -30,7 +28,7 @@ namespace Stocks.API.DAL
                    .SingleOrDefault(u => u.Id == id);
 
             _context.Users.Remove(user);
-            
+
         }
 
         //<inheritdoc>//
@@ -51,12 +49,12 @@ namespace Stocks.API.DAL
         {
             await _context.Users.AddAsync(user);
 
-            _context.SaveChanges(); 
+            _context.SaveChanges();
         }
 
         //<inheritdoc>//
         public async void PutUser(int id, User user)
-        { 
+        {
             var existingUser = await _context.Users.SingleOrDefaultAsync(u => u.Id == user.Id);
 
             existingUser = user;

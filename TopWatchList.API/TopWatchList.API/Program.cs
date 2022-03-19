@@ -1,18 +1,18 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Identity.Web;
 using Microsoft.EntityFrameworkCore;
-using Stocks.API.Services;
-using Stocks.API.DAL;
+using Microsoft.Identity.Web;
+using TopWatchList.API.DAL;
+using TopWatchList.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // Add services to the container.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
 builder.Services.AddDbContext<DataContext>(opt => {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("StocksDatabase"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("TopWatchListDatabase"));
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();

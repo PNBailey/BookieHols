@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\Software development\\Own projects\\Stocks\\Stocks.API\\Stocks.API\\Stocks.API.csproj": {}
+    "C:\\Users\\User\\Documents\\Software development\\Own projects\\TopWatchList (Angular)\\TopWatchList.API\\TopWatchList.API\\TopWatchList.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\Software development\\Own projects\\Stocks\\Stocks.API\\Stocks.API\\Stocks.API.csproj": {
+    "C:\\Users\\User\\Documents\\Software development\\Own projects\\TopWatchList (Angular)\\TopWatchList.API\\TopWatchList.API\\TopWatchList.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\Software development\\Own projects\\Stocks\\Stocks.API\\Stocks.API\\Stocks.API.csproj",
-        "projectName": "Stocks.API",
-        "projectPath": "C:\\Users\\User\\Documents\\Software development\\Own projects\\Stocks\\Stocks.API\\Stocks.API\\Stocks.API.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Software development\\Own projects\\TopWatchList (Angular)\\TopWatchList.API\\TopWatchList.API\\TopWatchList.API.csproj",
+        "projectName": "TopWatchList.API",
+        "projectPath": "C:\\Users\\User\\Documents\\Software development\\Own projects\\TopWatchList (Angular)\\TopWatchList.API\\TopWatchList.API\\TopWatchList.API.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\Software development\\Own projects\\Stocks\\Stocks.API\\Stocks.API\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Software development\\Own projects\\TopWatchList (Angular)\\TopWatchList.API\\TopWatchList.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,10 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNet.WebApi.Core": {
-              "target": "Package",
-              "version": "[5.2.7, )"
-            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.3, )"
@@ -56,29 +52,13 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.3, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.2, )"
+              "version": "[6.0.3, )"
             },
             "Microsoft.Identity.Web": {
               "target": "Package",
               "version": "[1.16.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[6.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

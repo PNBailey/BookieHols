@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Stocks.API.Models;
-using Stocks.API.Services;
+using TopWatchList.API.Models;
+using TopWatchList.API.Services;
 
-namespace Stocks.API.Controllers
+namespace TopWatchList.API.Controllers
 {
     /// <summary>
     /// The Users Controller
@@ -48,7 +48,7 @@ namespace Stocks.API.Controllers
             if (user == null)
             {
                 return NotFound();
-            } 
+            }
             else
             {
                 return user;

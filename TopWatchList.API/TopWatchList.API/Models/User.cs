@@ -1,4 +1,4 @@
-﻿namespace Stocks.API.Models
+﻿namespace TopWatchList.API.Models
 {
     /// <summary>
     ///The Model object for a User

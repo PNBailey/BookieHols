@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Stocks.API.DAL;
-using Stocks.API.Models;
+﻿using TopWatchList.API.DAL;
+using TopWatchList.API.Models;
 
-namespace Stocks.API.Services
+namespace TopWatchList.API.Services
 {
     /// <summary>
     /// The User Service
