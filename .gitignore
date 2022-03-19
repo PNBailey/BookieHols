@@ -1,11 +1,3 @@
-.vs/Stocks/v16/.suo
-.vs/slnx.sqlite
-.vs/VSWorkspaceState.json
-Stocks.UI/.editorconfig
-Stocks.UI/e2e/protractor.conf.js
-Stocks.UI/src/environments/environment.prod.ts
-Stocks.UI/src/environments/environment.ts
-Stocks.UI/.angular/cache/13.2.6/angular-webpack/bcb88080e2d5b6215db570fa384654065b800894/0.pack
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
@@ -48,12 +40,26 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-Stocks.API/.vs/
+.vs/TopWatchList/v16/.suo
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+TopWatchList.UI/.editorconfig
+TopWatchList.UI/e2e/protractor.conf.js
+TopWatchList.UI/src/environments/environment.prod.ts
+TopWatchList.UI/src/environments/environment.ts
+TopWatchList.UI/.angular/cache/13.2.6/angular-webpack/bcb88080e2d5b6215db570fa384654065b800894/0.pack
 
 # System Files
 .DS_Store
 Thumbs.db
 /.angular/cache/
-Stocks.UI/e2e/src/app.e2e-spec.ts
-Stocks.UI/.angular/cache/
-Stocks.UI/node_modules/
+TopWatchList.UI/e2e/src/app.e2e-spec.ts
+TopWatchList.UI/.angular/cache/
+TopWatchList.UI/node_modules/
+TopWatchList.API/.editorconfig
+TopWatchList.API/TopWatchList.API/bin/
+TopWatchList.API/TopWatchList.API/obj/project.nuget.cache
+TopWatchList.API/TopWatchList.API/obj/staticwebassets.pack.sentinel
+TopWatchList.API/TopWatchList.API/obj/Debug
+TopWatchList.API/TopWatchList.API/obj/Release
+TopWatchList.API/TopWatchList.API/.vs
