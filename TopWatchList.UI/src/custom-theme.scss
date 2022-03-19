@@ -1,6 +1,16 @@
 @use '@angular/material' as mat;
 
+// Adding the Angular Material Core Mixin
 @include mat.core();
+
+// Adjusting the focus of components to make the focus more obvious and make it more accessible 
+@include mat.strong-focus-indicators((
+  border-style: dotted,
+  border-width: 4px,
+  border-radius: 2px,
+));
+
+// Defining custom theme colours
 
 $custom-indigo: (
  50: #f3e5f5,
@@ -14,6 +24,7 @@ $custom-indigo: (
  800: #6a1b9a,
  900: #4a148c,
 
+ // Defining the contrast colours. These are used in the text that is displayed in the foreground
  contrast: (
    50: rgba(black, 0.87),
    100: rgba(black, 0.87),
@@ -66,5 +77,11 @@ $custom-theme: mat.define-light-theme((
   )
 ));
 
-@include mat.all-component-themes($custom-theme);
+@include mat.core-theme($custom-theme);
+
+// Angular Material Component Themes
+@include mat.button-theme($custom-theme);
+@include mat.toolbar-theme($custom-theme);
+@include mat.icon-theme($custom-theme);
+@include mat.sidenav-theme($custom-theme);
 
