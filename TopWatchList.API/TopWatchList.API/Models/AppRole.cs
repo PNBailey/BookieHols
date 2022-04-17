@@ -3,9 +3,9 @@
 namespace TopWatchList.API.Models
 {
     /// <summary>
-    ///The Model object for a User
+    /// The AppRole Model for use with Identity Framework
     /// </summary>
-    public class User : IdentityUser<int>
+    public class AppRole : IdentityRole<int>
     {
         /// <summary>
         /// The <see cref="AppUserRole"/>s.
