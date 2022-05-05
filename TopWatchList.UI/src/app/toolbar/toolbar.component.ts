@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AccountService } from '../services/account.service';
 import { UserService } from '../services/user.service';
 import { LoginRegisterDialogComponent } from './login-register-dialog/login-register-dialog.component';
 
@@ -10,12 +11,12 @@ import { LoginRegisterDialogComponent } from './login-register-dialog/login-regi
 })
 export class ToolbarComponent implements OnInit {
   @Output() showSideNav = new EventEmitter();
-  // displayLoginDialog = false;
 
-  constructor(private userService: UserService, public dialog: MatDialog) { }
+  constructor(
+    public accountService: AccountService, 
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(users => console.log(users));
   }
 
   openSideNav() {

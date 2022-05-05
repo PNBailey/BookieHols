@@ -4,6 +4,9 @@
     </button>
     <span>Top Watch List</span>
     <span class="spacer"></span>
+    <p *ngIf="(accountService.loggedOnUser$ | async) as user">
+      {{'Welcome ' + user.username}}
+    </p>
     <button (click)="openDialog()" color="white" mat-button aria-label="Login button">
       Login
     </button>
