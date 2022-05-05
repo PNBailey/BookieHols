@@ -38,13 +38,13 @@ namespace TopWatchList.API.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await _userManager.Users.AnyAsync(user => user.UserName == registerDto.UserName.ToLower()))
+            if (await _userManager.Users.AnyAsync(user => user.UserName == registerDto.Username.ToLower()))
             {
                 return BadRequest("Username is already taken");
             }
 
             var appUser = _mapper.Map<User>(registerDto);
-            appUser.UserName = registerDto.UserName.ToLower();
+            appUser.UserName = registerDto.Username.ToLower();
 
             var result = await _userManager.CreateAsync(appUser, registerDto.Password);
             if (!result.Succeeded) return BadRequest(result.Errors);
