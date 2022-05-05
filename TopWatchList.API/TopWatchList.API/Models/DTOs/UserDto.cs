@@ -13,7 +13,7 @@
         /// <summary>
         /// Gets or Sets the UserName of the <see cref="User"/>.
         /// </summary>
-        public string UserName { get; set; } = string.Empty;
+        public string Username { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or Sets the Name of the <see cref="User"/>.

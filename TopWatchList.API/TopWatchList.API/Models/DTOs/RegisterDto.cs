@@ -8,11 +8,16 @@
         /// <summary>
         /// Gets or Sets the UserName of the <see cref="User"/>.
         /// </summary>
-        public string UserName { get; set; } = string.Empty;
+        public string Username { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or Sets the <see cref="User"/>s Password.
         /// </summary>
         public string Password { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or Sets the <see cref="User"/>s Email.
+        /// </summary>
+        public string Email { get; set; } = string.Empty;
     }
 }
