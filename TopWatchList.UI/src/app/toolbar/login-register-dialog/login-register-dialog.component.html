@@ -28,7 +28,7 @@
         <div class="row">
             <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>
-                <input matInput type="text">
+                <input matInput type="text" [(ngModel)]="registerUser.username">
             </mat-form-field>
         </div>
         <div class="row">
@@ -39,13 +39,14 @@
                 type="password" 
                 placeholder="Enter Password.."
                 matTooltip="Must contain: 1 digit, 1 lowercase, 1 uppercase Minimum length: 6 characters"
-                matTooltipPosition="above">
+                matTooltipPosition="above"
+                [(ngModel)]="registerUser.password">
             </mat-form-field>
         </div>
         <div class="row">
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput type="email">
+                <input matInput type="email" [(ngModel)]="registerUser.email">
             </mat-form-field>
         </div>
     </div>
@@ -54,7 +55,7 @@
     </div>
     <div mat-dialog-actions align="end">
         <button mat-button>Cancel</button>
-        <button mat-button cdkFocusInitial>Register</button>
+        <button mat-button cdkFocusInitial (click)="onRegisterUser()">Register</button>
     </div>
 </div>
 
