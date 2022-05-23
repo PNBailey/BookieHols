@@ -1,0 +1,9 @@
+<app-toolbar (showSideNav)="drawer.toggle()"></app-toolbar>
+<mat-drawer-container class="container">
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+    </mat-drawer>
+    <div class="sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
