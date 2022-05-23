@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SnackbarAction, SnackbarClassType, SnackbarDuration } from '../Models/snackbar-item';
 import { User } from '../Models/user';
 import { MessageHandlingService } from './message-handling.service';
-import { MovieDatabaseService } from './movie-database.service';
 
 export interface RegisterUser {
   username: string;
@@ -29,7 +29,7 @@ export class AccountService {
   constructor(
     private http: HttpClient, 
     private messageHandlingService: MessageHandlingService,
-    private movieDatabaseService: MovieDatabaseService) 
+    private router: Router) 
     { }
 
   /**
@@ -43,7 +43,7 @@ export class AccountService {
     this.http.post<User>(`${this.baseUrl}/Register`, registerUser).subscribe(user => {
       if(user) {
         this.setLoggedOnUser(user);
-        this.movieDatabaseService.requestToken();
+        this.router.navigate(['/home']);
       }
     }, error => {
       this.messageHandlingService.displayMessage({message: 'Unable to submit. There are errors on the form', action: SnackbarAction.Close, classType: SnackbarClassType.Error, duration: SnackbarDuration.Medium});
