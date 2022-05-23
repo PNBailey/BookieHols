@@ -1,0 +1,27 @@
+/* ANGULAR MATERIAL AUTO DEFINED STYLE */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* OWN STYLES */
+
+.snack-bar-error {
+  background: rgb(255, 0, 0);
+}
+
+.snack-bar-info {
+  background: #37474f;
+}
+
+.snack-bar-success {
+  background: #2e7d32;
+}
+
+.mat-snack-bar-container,
+.mat-simple-snackbar-action > .mat-button > .mat-button-wrapper {
+    color: white;
+}
+
+.mat-simple-snackbar-action > .mat-button {
+  border-left: 3px white;
+}
