@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookieHols.API.Models
 {
@@ -11,5 +12,17 @@ namespace BookieHols.API.Models
         /// The <see cref="AppUserRole"/>s.
         /// </summary>
         public ICollection<AppUserRole> UserRoles { get; set; } = null!;
+    }
+
+    /// <summary>
+    /// A Fluent Validation Validator to Validate the User. See Fluent Validation documentation here: <see href="https://docs.fluentvalidation.net/en/latest/index.html"/>.
+    /// </summary>
+    public class UserValidator : AbstractValidator<User>
+    {
+        public UserValidator()
+        {
+            RuleFor<string>(user => user.Email).NotEmpty();
+            RuleFor(user => user.UserName).NotEmpty();
+        }
     }
 }
