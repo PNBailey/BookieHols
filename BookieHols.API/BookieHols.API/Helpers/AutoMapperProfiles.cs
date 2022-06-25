@@ -11,6 +11,10 @@ namespace API.Helpers
             CreateMap<RegisterDto, User>();
 
             CreateMap<User, UserDto>();
+
+            CreateMap<LoginDto, User>();
+
+            CreateMap<User, LoginDto>();
         }
     }
 }

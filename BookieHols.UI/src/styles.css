@@ -1,31 +1,15 @@
-/* ANGULAR MATERIAL AUTO DEFINED STYLE */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* OWN STYLES */
-
-.snack-bar-error {
-  background: rgb(255, 0, 0);
-}
-
-.snack-bar-info {
-  background: #37474f;
-}
-
-.snack-bar-success {
-  background: #2e7d32;
-}
-
-.mat-snack-bar-container,
-.mat-simple-snackbar-action > .mat-button > .mat-button-wrapper {
-    color: white;
-}
-
-.mat-simple-snackbar-action > .mat-button {
-  border-left: 3px white;
-}
-
-.sidenav-container {
+/* .spinner-container {
+  width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.418);
 }
+
+.spinner {
+  z-index: 9;
+} */
+

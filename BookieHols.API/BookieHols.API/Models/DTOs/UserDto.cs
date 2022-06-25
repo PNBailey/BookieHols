@@ -1,4 +1,6 @@
-﻿namespace BookieHols.API.Models.DTOs
+﻿using System.IdentityModel.Tokens.Jwt;
+
+namespace BookieHols.API.Models.DTOs
 {
     /// <summary>
     /// A Dto for the <see cref="User"/> Entity
@@ -19,5 +21,10 @@
         /// Gets or Sets the Name of the <see cref="User"/>.
         /// </summary>
         public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or Sets the <see cref="JwtSecurityToken"/>.
+        /// </summary>
+        public JwtSecurityToken? Token { get; set; }
     }
 }

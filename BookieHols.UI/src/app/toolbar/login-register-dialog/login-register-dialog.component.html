@@ -6,6 +6,13 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Username</mat-label>
                     <input matInput type="text" formControlName="username">
+                    <mat-error *ngIf="loginForm.controls['username'].hasError('usernameUniquenessViolated') && loginForm.controls['username'].touched">
+                        No user found with this username. Please <strong>Register</strong> below
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+                        Username is <strong>required</strong>
+                    </mat-error>
+                    <mat-spinner matSuffix [diameter]="18" *ngIf="loadingService.loadingObs.checkingUsername$ | async"></mat-spinner>
                 </mat-form-field>
             </div>
             <div class="row mb-2">
@@ -16,6 +23,9 @@
                         type="password" 
                         placeholder="Enter Password.." 
                         formControlName="password">
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -32,7 +42,7 @@
         </div>
         <div mat-dialog-actions align="end">
             <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Login</button>
+            <button mat-button cdkFocusInitial (click)="loginUser()">Login</button>
         </div>
     </form>
 </div>
@@ -50,6 +60,7 @@
                     <mat-error *ngIf="registerForm.controls['username'].hasError('required')">
                         Username is <strong>required</strong>
                     </mat-error>
+                    <mat-spinner matSuffix [diameter]="18" *ngIf="loadingService.loadingObs.checkingUsername$ | async"></mat-spinner>
                 </mat-form-field>
             </div>
             <div class="row mb-2">
@@ -83,6 +94,7 @@
                     <mat-error *ngIf="registerForm.controls['email'].hasError('emailUniquenessViolated')">
                         An account with this email address already exists. Select login below to login
                     </mat-error>
+                    <mat-spinner matSuffix [diameter]="18" *ngIf="loadingService.loadingObs.checkingEmail$ | async"></mat-spinner>
                 </mat-form-field>
             </div>
         </div>
@@ -101,11 +113,13 @@
             <button mat-button mat-dialog-close>Cancel</button>
             <button 
             mat-button 
-            cdkFocusInitial 
-            [mat-dialog-close]="true" 
-            [disabled]="registerForm.invalid"
+            cdkFocusInitial
             (click)="registerUser()">Register</button>
         </div>
     </form>
 </div>
 
+<!-- <ng-container *ngIf="loadingService.isLoading$ | async">
+    <div class="spinner-container">
+    </div>
+  </ng-container> -->

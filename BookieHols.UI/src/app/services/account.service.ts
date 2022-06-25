@@ -1,18 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import { SnackbarAction, SnackbarClassType, SnackbarDuration } from '../Models/snackbar-item';
 import { User } from '../Models/user';
+import { LoadingService } from './loading.service';
 import { MessageHandlingService } from './message-handling.service';
 
-export interface RegisterUser {
+interface RegisterUser {
   username: string;
   password: string;
   email: string;
 }
 
-export interface LoginUser {
+interface LoginUser {
   username: string;
   password: string;
 }
@@ -22,14 +25,17 @@ export interface LoginUser {
 })
 export class AccountService {
 
-  baseUrl: string = "https://localhost:7161/api/Account"
+  baseUrl = "https://localhost:7161/api/Account"
   private loggedOnUser: BehaviorSubject<User> = new BehaviorSubject(null);
   loggedOnUser$: Observable<User> = this.loggedOnUser.asObservable();
+  dialogOpen = false;
 
   constructor(
     private http: HttpClient, 
     private messageHandlingService: MessageHandlingService,
-    private router: Router) 
+    private router: Router,
+    public dialog: MatDialog,
+    public loadingService: LoadingService) 
     { }
 
   /**
@@ -40,14 +46,24 @@ export class AccountService {
    * the registered User
    */
   register(registerUser: RegisterUser) {
-    this.http.post<User>(`${this.baseUrl}/Register`, registerUser).subscribe(user => {
-      if(user) {
-        this.setLoggedOnUser(user);
-        this.router.navigate(['/home']);
-      }
-    }, error => {
-      this.messageHandlingService.displayMessage({message: 'Unable to submit. There are errors on the form', action: SnackbarAction.Close, classType: SnackbarClassType.Error, duration: SnackbarDuration.Medium});
-    });
+    this.http.post<User>(`${this.baseUrl}/Register`, registerUser).pipe(
+      tap(user => {
+        if(user) {
+          this.setLoggedOnUser(user),
+          this.dialog.closeAll();
+          this.router.navigate(['/home']);
+        }
+      }),
+      catchError(err => {
+        this.messageHandlingService.displayMessage({
+          message: 'Unable to submit. There are errors on the form', 
+          action: SnackbarAction.Close, 
+          classType: SnackbarClassType.Error, 
+          duration: SnackbarDuration.Medium
+        });
+        return throwError(of(console.log(err)))
+      })    
+      ).subscribe();
   }
 
   /**
@@ -88,8 +104,49 @@ export class AccountService {
    * the logged in User
    */
   login(loginUser: LoginUser) {
-    this.http.post<User>(`${this.baseUrl}/Login`, loginUser).subscribe(user => {
-      this.setLoggedOnUser(user);
+    this.http.post<User>(`${this.baseUrl}/Login`, loginUser).pipe(
+      tap(user => {
+        if(user) {
+          this.setLoggedOnUser(user);
+          this.dialog.closeAll();
+          this.router.navigate(['/home']);
+        }
+      }),
+      catchError(err => {        
+        if(err.error.isNotAllowed && !err.error.succeeded) {
+          this.messageHandlingService.displayMessage({
+            message: 'Unable to login. Please check Username and Password are correct', 
+            action: SnackbarAction.Close, 
+            classType: SnackbarClassType.Error, 
+            duration: SnackbarDuration.Medium
+          });
+        } else {
+          this.messageHandlingService.displayMessage({
+            message: 'Unable to login. There are errors on the form', 
+            action: SnackbarAction.Close, 
+            classType: SnackbarClassType.Error, 
+            duration: SnackbarDuration.Medium
+          });
+        }
+        return throwError(of(console.log(err)))
+      })
+    ).subscribe();
+  }
+
+  /**
+   * @remarks
+   * Logs a user out of the app
+   */
+  logout() {
+    this.http.post(`${this.baseUrl}/Logout`, {}).subscribe(() => {
+      this.setLoggedOnUser(null);
+    }, error => {
+      this.messageHandlingService.displayMessage({
+        message: 'Unable to logout. An unkown error occured', 
+        action: SnackbarAction.Close, 
+        classType: SnackbarClassType.Error, 
+        duration: SnackbarDuration.Medium
+      });
     });
   }
 
@@ -98,7 +155,7 @@ export class AccountService {
    * Sets the logged on User
    */
    setLoggedOnUser(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
     this.loggedOnUser.next(user);
   }
-
 }

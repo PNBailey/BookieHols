@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { SnackBarItem } from '../Models/snackbar-item';
 
 @Injectable({

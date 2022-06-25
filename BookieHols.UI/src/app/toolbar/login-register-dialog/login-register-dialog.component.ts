@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { RegisterUser } from 'src/app/Models/registerUser';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { EmailValidator } from 'src/app/shared/validators/email-validator';
 import { UsernameValidator } from 'src/app/shared/validators/username-validator';
 
@@ -12,14 +13,18 @@ import { UsernameValidator } from 'src/app/shared/validators/username-validator'
 })
 export class LoginRegisterDialogComponent implements OnInit {
   register = false;
-  // registerUser: RegisterUser;
   registerForm: FormGroup;
   loginForm: FormGroup;
+  componentIsDestroyed: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  test = true;
 
-  constructor(private accountService: AccountService, private fb: FormBuilder) { }
+  constructor(
+    public accountService: AccountService, 
+    public loadingService: LoadingService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
-    // this.registerUser = new RegisterUser();
     this.buildLoginForm();
   }
 
@@ -38,15 +43,15 @@ export class LoginRegisterDialogComponent implements OnInit {
 
   buildRegisterForm() {
     this.registerForm = this.fb.group({
-      'username': ['', [Validators.required], [UsernameValidator.uniqueUsernameValidatorFn(this.accountService)]],
+      'username': ['', [Validators.required], [UsernameValidator.uniqueUsernameValidatorFn(this.accountService, this.loadingService, false)]],
       'password': ['', [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
-      'email': ['', [Validators.required, Validators.email], [EmailValidator.uniqueEmailValidatorFn(this.accountService)]]
+      'email': ['', [Validators.required, Validators.email], [EmailValidator.uniqueEmailValidatorFn(this.accountService, this.loadingService)]]
     });
   }
 
   buildLoginForm() {
     this.loginForm = this.fb.group({
-      'username': ['', [Validators.required]],
+      'username': ['', [Validators.required], [UsernameValidator.uniqueUsernameValidatorFn(this.accountService, this.loadingService, true)]],
       'password': ['', [Validators.required, Validators.minLength(6)]],
     });
   }

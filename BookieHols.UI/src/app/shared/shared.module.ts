@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Angular Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -26,7 +28,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatTooltipModule,
     MatSnackBarModule,
-    HttpClientModule
+    MatProgressSpinnerModule,
+    HttpClientModule,
+    MatMenuModule
   ], 
   exports: [
     MatToolbarModule,
@@ -37,7 +41,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }

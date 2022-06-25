@@ -24,13 +24,13 @@ export class ToolbarComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(LoginRegisterDialogComponent, {
+    this.dialog.open(LoginRegisterDialogComponent, {
       width: '350px'
     });
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  logout() {
+    this.accountService.logout();
   }
 
 }
